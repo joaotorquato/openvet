@@ -1,0 +1,54 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/campuscodemm4/workspace/openvet/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/campuscodemm4/workspace/openvet/app/controllers/pets_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/campuscodemm4/workspace/openvet/app/models/pet.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscodemm4/workspace/openvet/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1455754990
+  }
+}
