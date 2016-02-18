@@ -1,5 +1,4 @@
 class PetsController < ActionController::Base
-
   def new
     @pet = Pet.new
   end
@@ -22,7 +21,5 @@ class PetsController < ActionController::Base
   def pet_params
     params.require(:pet).permit(:owner, :name, :species, :breed, :gender,
                                 :birth_date, :photo, :address)
-
   end
-
 end

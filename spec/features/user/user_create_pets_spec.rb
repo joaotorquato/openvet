@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User register a new pet' do
   scenario 'succesfully' do
-
     visit new_pet_path
 
     fill_in 'pet[owner]', with: 'João Almeida'
@@ -28,7 +27,6 @@ feature 'User register a new pet' do
     expect(page).to have_content '08'
     expect(page).to have_content 'Alameda Santos, 1293'
     # expect(page).to have_xpath "//*[@*='Padme']"
-
   end
 
   # scenario 'unsuccesfully' do
