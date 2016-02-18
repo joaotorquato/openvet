@@ -1,4 +1,4 @@
-class PetsController < ActionController::Base
+class PetsController < ApplicationController
   def new
     @pet = Pet.new
   end

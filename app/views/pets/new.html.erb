@@ -1,11 +1,11 @@
 <%= simple_form_for @pet do |f|  %>
-<%= f.input :owner %>
-<%= f.input :name %>
-<%= f.input :species, collection: ["Gato", "Cão"] %>
-<%= f.input :breed %>
-<%= f.input :gender %>
-<%= f.input :birth_date, as: :date %>
-<%= f.input :address %>
-<%= f.input :avatar, as: :file %>
-<%= f.submit 'Registrar pet' %>
+  <%= f.input :owner %>
+  <%= f.input :name %>
+  <%= f.input :species, collection: ["Cão", "Gato"] %>
+  <%= f.input :breed %>
+  <%= f.input :gender %>
+  <%= f.input :birth_date, as: :date %>
+  <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit 'Registrar pet' %>
 <% end %>

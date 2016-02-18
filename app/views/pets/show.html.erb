@@ -1,8 +1,8 @@
+<%= image_tag @pet.photo.url(:medium) %>
 <%= @pet.owner %>
 <%= @pet.name %>
 <%= @pet.species %>
 <%= @pet.breed %>
 <%= @pet.gender %>
-<%= @pet.birth_date %>
+<%= @pet.birth_date.strftime('%d/%m/%Y') %>
 <%= @pet.address %>
-<%= @pet.photo.url %>
