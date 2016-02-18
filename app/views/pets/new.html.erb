@@ -1,0 +1,11 @@
+<%= simple_form_for @pet do |f|  %>
+  <%= f.input :owner, label: 'Dono(a)' %>
+  <%= f.input :name, label: 'Nome do pet' %>
+  <%= f.input :species, label: 'Espécie', collection: ["Cão", "Gato"] %>
+  <%= f.input :breed, label: 'Raça' %>
+  <%= f.input :gender, label: 'Sexo', collection: ["M", "F"] %>
+  <%= f.input :birth_date, label: 'Data de nascimento', as: :date %>
+  <%= f.input :address, label: 'Endereço' %>
+  <%= f.input :photo, label: 'Foto do pet', as: :file %>
+  <%= f.submit 'Registrar pet', label: '', class: 'btn btn-primary' %>
+<% end %>
