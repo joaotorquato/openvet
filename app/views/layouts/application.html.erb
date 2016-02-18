@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Openvet</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
-</html>
+  <head>
+    <title>Openvet</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <%= link_to "OpenVet", root_path, {class:"navbar-brand"} %>
+            </div>
+            <ul class="nav navbar-nav">
+              <li>
+                <%= link_to "Meus pets", pets_path %>
+              </li>
+              <li>
+                <%= link_to "Cadastrar pet", new_pet_path %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <%= yield %>
+      </div>
+    </body>
+  </html>

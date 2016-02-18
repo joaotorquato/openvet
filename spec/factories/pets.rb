@@ -4,7 +4,7 @@ FactoryGirl.define do
     name 'Padmé'
     species 'Gato'
     breed 'SRD'
-    gender 'Feminino'
+    gender 'F'
     birth_date '01/08/2016'
     address 'Alameda Santos, 1293'
     photo do

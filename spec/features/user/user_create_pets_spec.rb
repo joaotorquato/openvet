@@ -10,7 +10,7 @@ feature 'User register a new pet' do
     fill_in 'pet[name]', with: pet.name
     select pet.species, from: 'pet[species]'
     fill_in 'pet[breed]', with: pet.breed
-    fill_in 'pet[gender]', with: pet.gender
+    select pet.gender, from: 'pet[gender]'
     select '2016', from: 'pet[birth_date(1i)]'
     select 'August', from: 'pet[birth_date(2i)]'
     select '1', from: 'pet[birth_date(3i)]'
