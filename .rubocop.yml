@@ -13,5 +13,6 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'Rakefile'
+    - 'app/controllers/application_controller.rb'
 Rails:
   Enabled: true

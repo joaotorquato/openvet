@@ -1,7 +1,6 @@
 class PetsController < ApplicationController
   before_action :authenticate_user!
 
-
   def new
     @pet = Pet.new
   end

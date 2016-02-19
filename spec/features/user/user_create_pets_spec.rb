@@ -45,7 +45,6 @@ feature 'User register a new pet' do
     expect(page).to have_content 'can\'t be blank'
   end
 
-  scenario "user need to be authenticated to register a new pet" do
-
+  scenario 'user need to be authenticated to register a new pet' do
   end
 end
