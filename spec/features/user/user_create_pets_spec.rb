@@ -3,6 +3,9 @@ require 'rails_helper'
 feature 'User register a new pet' do
   scenario 'succesfully' do
     pet = build(:pet)
+    create(:user)
+
+    login
 
     visit new_pet_path
 
@@ -29,12 +32,20 @@ feature 'User register a new pet' do
     expect(page).to have_xpath("//img[contains(@src,'padme.jpg')]")
   end
 
-  scenario 'unsuccesfully' do
+  scenario "user can't register a new pet without the required fields" do
+    create(:user)
+
+    login
+
     visit new_pet_path
 
     click_on 'Registrar pet'
 
     expect(current_path).to eq pets_path
     expect(page).to have_content 'can\'t be blank'
+  end
+
+  scenario "user need to be authenticated to register a new pet" do
+
   end
 end
