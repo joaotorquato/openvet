@@ -8,13 +8,31 @@ feature 'User authenticates' do
 
     click_on "Entrar"
 
-    fill_in "email", with: "joaorsalmeida@testmail.com"
-    fill_in "password", with: "padme123"
+    fill_in "user[email]", with: "joaorsalmeida@testmail.com"
+    fill_in "user[password]", with: "padme123"
 
     click_on "Login"
 
     expect(page).to have_content "Olá, #{user.email}"
     expect(page).to have_link 'Sair'
     expect(page).not_to have_link 'Entrar'
+  end
+
+  scenario 'user sign out succesfully' do
+    user = create(:user)
+
+    visit new_user_session_path
+
+    fill_in "user[email]", with: "joaorsalmeida@testmail.com"
+    fill_in "user[password]", with: "padme123"
+
+    click_on "Login"
+
+    click_on "Sair"
+
+    expect(page).to have_content "Entrar"
+    expect(page).not_to have_content "Sair"
+    expect(page).not_to have_content "Olá, #{user.email}"
+
   end
 end

@@ -21,6 +21,16 @@
               <li>
                 <%= link_to "Cadastrar pet", new_pet_path %>
               </li>
+              <li>
+                <% if user_signed_in? %>
+                  <%= link_to "Sair", destroy_user_session_path, method: :delete, class:"navbar-right" %>
+              <li>
+                  <a class=""> <%= "Olá, #{current_user.email}" %></a>
+              </li>
+                <% else %>
+                  <%= link_to "Entrar", new_user_session_path, class:"navbar-right" %>
+                <% end %>
+              </li>
             </ul>
           </div>
         </nav>

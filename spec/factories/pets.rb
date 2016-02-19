@@ -6,7 +6,7 @@ FactoryGirl.define do
     breed 'SRD'
     gender 'F'
     birth_date '01/08/2016'
-    address 'Alameda Santos, 1293'
+    address 'Alameda Santos, 1293asd'
     photo do
       File.new("#{Rails.root}/spec/images/pets/padme.jpg")
     end
