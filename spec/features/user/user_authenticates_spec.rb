@@ -1,40 +1,20 @@
 require 'rails_helper'
 
-feature 'User register a new pet' do
+feature 'User authenticates' do
   scenario 'succesfully' do
-    pet = build(:pet)
+    user = create(:user)
 
-    visit new_pet_path
+    visit root_path
 
-    fill_in 'pet[owner]', with: pet.owner
-    fill_in 'pet[name]', with: pet.name
-    select pet.species, from: 'pet[species]'
-    fill_in 'pet[breed]', with: pet.breed
-    select pet.gender, from: 'pet[gender]'
-    select '2016', from: 'pet[birth_date(1i)]'
-    select 'August', from: 'pet[birth_date(2i)]'
-    select '1', from: 'pet[birth_date(3i)]'
-    fill_in 'pet[address]', with: pet.address
-    attach_file 'pet[photo]', 'spec/images/pets/padme.jpg'
+    click_on "Entrar"
 
-    click_on 'Registrar pet'
+    fill_in "email", with: "joaorsalmeida@testmail.com"
+    fill_in "password", with: "padme123"
 
-    expect(page).to have_content pet.owner
-    expect(page).to have_content pet.name
-    expect(page).to have_content pet.species
-    expect(page).to have_content pet.breed
-    expect(page).to have_content pet.gender
-    expect(page).to have_content pet.birth_date.strftime('%d/%m/%Y')
-    expect(page).to have_content pet.address
-    expect(page).to have_xpath("//img[contains(@src,'padme.jpg')]")
-  end
+    click_on "Login"
 
-  scenario 'unsuccesfully' do
-    visit new_pet_path
-
-    click_on 'Registrar pet'
-
-    expect(current_path).to eq pets_path
-    expect(page).to have_content 'can\'t be blank'
+    expect(page).to have_content "Olá, #{user.email}"
+    expect(page).to have_link 'Sair'
+    expect(page).not_to have_link 'Entrar'
   end
 end
