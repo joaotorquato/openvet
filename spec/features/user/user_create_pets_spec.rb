@@ -32,7 +32,7 @@ feature 'User register a new pet' do
     expect(page).to have_xpath("//img[contains(@src,'padme.jpg')]")
   end
 
-  scenario "user can't register a new pet without the required fields" do
+  scenario "can't register a new pet without the required fields" do
     create(:user)
 
     login
@@ -42,9 +42,6 @@ feature 'User register a new pet' do
     click_on 'Registrar pet'
 
     expect(current_path).to eq pets_path
-    expect(page).to have_content 'can\'t be blank'
-  end
-
-  scenario 'user need to be authenticated to register a new pet' do
+    expect(page).to have_content 'Campo obrigatório'
   end
 end

@@ -6,12 +6,19 @@ class PetsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @pet = Pet.new(pet_params)
+    @pet.set_user(current_user)
     if @pet.save
       redirect_to @pet
     else
       render :new
     end
+  end
+
+  def index
+    @user = User.find(current_user.id)
+    @pets = @user.pets
   end
 
   def show

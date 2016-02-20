@@ -4,5 +4,10 @@ class Pet < ActiveRecord::Base
                             default_url: '/images/:style/missing.jpg'
   validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\Z}
   validates         :owner, :name, :species, :breed, :birth_date, :address,
-                    :gender, presence: true
+                    :gender, :user_id, presence: true
+
+  def set_user(user)
+    self.user_id = user.id
+    save
+  end
 end
