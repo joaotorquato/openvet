@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  before_action :set_pet, only: [:show]
   before_action :authenticate_user!
 
   def new
@@ -22,10 +23,13 @@ class PetsController < ApplicationController
   end
 
   def show
-    @pet = Pet.find(params[:id])
   end
 
   private
+
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
 
   def pet_params
     params.require(:pet).permit(:owner, :name, :species, :breed, :gender,
