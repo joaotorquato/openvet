@@ -1,8 +1,17 @@
-<%= image_tag @pet.photo.url(:medium), height: 300 %>
-<%= @pet.owner %>
-<%= @pet.name %>
-<%= @pet.species %>
-<%= @pet.breed %>
-<%= @pet.gender %>
-<%= @pet.birth_date.strftime('%d/%m/%Y') %>
-<%= @pet.address %>
+<div class="row">
+  <div class="col-md-3">
+    <ul class="list-unstyled">
+      <li><strong>Dono(a): </strong><%= @pet.owner %></li>
+      <li><strong>Nome: </strong><%= @pet.name %></li>
+      <li><strong>Espécie: </strong><%= @pet.species %></li>
+      <li><strong>Raça: </strong><%= @pet.breed %></li>
+      <li><strong>Gênero: </strong><%= @pet.gender %></li>
+      <li><strong>Nascimento: </strong><%= @pet.birth_date.strftime("%d/%m/%Y") %></li>
+      <li><strong>Endereço: </strong><%= @pet.address %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <%= image_tag @pet.photo.url(:medium) %>
+  </div>
+</div>
+<br>

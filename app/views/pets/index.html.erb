@@ -1,16 +1,17 @@
-<div class="row">
-    <div class="col-md-12">
-      <% @pets.each do |pet| %>
-        <div class="col-md-2">
-          <%= image_tag pet.photo.url(:medium), height: 150 %>
-        </div>
-        <div class="col-md-10">
+<% @pets.each do |pet| %>
+  <div class="row">
+      <div class="col-md-3">
           <h2><%= link_to pet.name, pet_path(pet.id) %></h2>
-          <li><strong>Espécie: </strong><%= pet.species %></li>
-          <li><strong>Raça: </strong><%= pet.breed %></li>
-          <li><strong>Gênero: </strong><%= pet.gender %></li>
-          <li><strong>Nascimento: </strong><%= pet.birth_date %></li>
+          <ul class="list-unstyled">
+            <li><strong>Espécie: </strong><%= pet.species %></li>
+            <li><strong>Raça: </strong><%= pet.breed %></li>
+            <li><strong>Gênero: </strong><%= pet.gender %></li>
+            <li><strong>Nascimento: </strong><%= pet.birth_date.strftime("%d/%m/%Y") %></li>
+          </ul>
         </div>
-      <% end %>
-    </div>
-</div>
+        <div class="col-md-9">
+          <%= image_tag pet.photo.url(:medium) %>
+        </div>
+  </div>
+  <br>
+<% end %>
