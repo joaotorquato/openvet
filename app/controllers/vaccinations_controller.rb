@@ -5,7 +5,7 @@ class VaccinationsController < ApplicationController
 
   def create
     @pet = Pet.find(params[:pet_id])
-    @vaccination = @pet.vaccinations.build(vaccination_params)
+    @vaccination = Vaccination.new(vaccination_params.merge(pet: @pet))
     if @vaccination.save
       redirect_to @pet
     else

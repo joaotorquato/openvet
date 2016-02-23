@@ -8,35 +8,8 @@
 </head>
 <body>
   <div class="container">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <%= link_to "OpenVet", root_path, {class:"navbar-brand"} %>
-        </div>
-        <% if user_signed_in? %>
-        <ul class="nav navbar-nav">
-          <li>
-            <%= link_to "Meus pets", pets_path %>
-          </li>
-          <li>
-            <%= link_to "Cadastrar pet", new_pet_path %>
-          </li>
-        </ul>
-        <% end  %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <% if user_signed_in? %>
-            <%= link_to "Sair", destroy_user_session_path, method: :delete, class:"navbar-right" %>
-            <li>
-              <a class=""> <%= "Olá, #{current_user.name}" %></a>
-            </li>
-            <% else %>
-            <%= link_to "Entrar", new_user_session_path, class:"navbar-right" %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <%= render partial: 'layouts/navbar' %>
+    <%= render partial: 'layouts/flash_message' %>
     <%= yield %>
   </div>
 </body>

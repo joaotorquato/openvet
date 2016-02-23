@@ -17,9 +17,8 @@ feature 'User register a new vaccination' do
     fill_in 'vaccination[veterinary]', with: 'Dr. Dolittle'
 
     click_on 'Registrar vacinação'
-
     expect(page).to have_content 'Triple'
-    expect(page).to have_content '01/08/2016'
+    expect(page).to have_xpath "//*[normalize-space()='01/08/2016']"
     expect(page).to have_content 15
     expect(page).to have_content 'Dr. Dolittle'
   end
