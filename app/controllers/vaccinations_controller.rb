@@ -4,11 +4,12 @@ class VaccinationsController < ApplicationController
   end
 
   def create
-    @vaccination = Vaccination.new(vaccination_params)
+    @pet = Pet.find(params[:pet_id])
+    @vaccination = @pet.vaccinations.build(vaccination_params)
     if @vaccination.save
-      redirect_to @vaccination
+      redirect_to @pet
     else
-      render :new
+      render template: 'pets/show'
     end
   end
 

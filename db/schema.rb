@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222232029) do
+ActiveRecord::Schema.define(version: 20160223002444) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "owner"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 20160222232029) do
     t.string   "veterinary"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "pet_id"
   end
+
+  add_index "vaccinations", ["pet_id"], name: "index_vaccinations_on_pet_id"
 
 end

@@ -15,3 +15,23 @@
   </div>
 </div>
 <br>
+
+<% @pet.vaccinations.each do |vaccination| %>
+<div class="row">
+  <ul class="list-unstyled">
+    <li><strong>Nome: </strong><%= vaccination.name %></li>
+    <li><strong>Data de vacinação: </strong><%= vaccination.vaccination_date %></li>
+    <li><strong>Data de revacinação: </strong><%= vaccination.expiration_date %></li>
+    <li><strong>Veterinário: </strong><%= vaccination.veterinary %></li>
+  </ul>
+</div>
+<br>
+<% end %>
+
+<%= simple_form_for [@pet, @vaccination] do |f|  %>
+  <%= f.input :name, label: 'Name', error: 'Campo obrigatório' %>
+  <%= f.input :vaccination_date, label: 'Data de vacinação', error: 'Campo obrigatório' %>
+  <%= f.input :expiration_date, label: 'Expiração', error: 'Campo obrigatório' %>
+  <%= f.input :veterinary, label: 'Veterinário', error: 'Campo obrigatório' %>
+  <%= f.submit 'Registrar vacinação', label: '', class: 'btn btn-primary' %>
+<% end %>
