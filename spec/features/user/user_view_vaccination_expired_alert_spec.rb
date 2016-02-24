@@ -2,10 +2,8 @@ require 'rails_helper'
 
 feature 'User view vaccination expired alert' do
   scenario 'on index' do
-    travel_to 20.days.ago do
-      create(:vaccination, vaccination_date: Time.zone.now,
-                           expiration_date: 15.days.from_now)
-    end
+    create(:vaccination, vaccination_date: Time.zone.now,
+                         expiration_date: 5.days.ago)
 
     login
 
@@ -15,10 +13,8 @@ feature 'User view vaccination expired alert' do
   end
 
   scenario 'on show' do
-    travel_to 35.days.ago do
-      create(:vaccination, vaccination_date: Time.zone.now,
-                           expiration_date: 15.days.from_now)
-    end
+    create(:vaccination, vaccination_date: Time.zone.now,
+                         expiration_date: 20.days.ago)
 
     login
 
