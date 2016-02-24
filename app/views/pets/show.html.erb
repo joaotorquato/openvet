@@ -6,7 +6,7 @@
           <li><strong><%= "Vacina #{vaccination.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
         <% end %>
         <% if vaccination.expired? %>
-          <li><strong><%= "Vacina #{vaccination.name} expirou há #{vaccination.expiration_days} dias" %></strong></li>
+          <li><strong><%= "Vacina #{vaccination.name} expirou há #{vaccination.expired_days} dias" %></strong></li>
         <% end %>
       <% end %>
       <li><strong>Dono(a): </strong><%= @pet.owner %></li>

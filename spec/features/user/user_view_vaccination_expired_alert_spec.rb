@@ -15,7 +15,7 @@ feature 'User view vaccination expired alert' do
   end
 
   scenario 'on show' do
-    travel_to 20.days.ago do
+    travel_to 35.days.ago do
       create(:vaccination, vaccination_date: Time.zone.now,
                            expiration_date: 15.days.from_now)
     end
@@ -24,6 +24,6 @@ feature 'User view vaccination expired alert' do
 
     visit pet_path(1)
 
-    expect(page).to have_content 'Vacina Tripla expirou há 5 dias'
+    expect(page).to have_content 'Vacina Tripla expirou há 20 dias'
   end
 end

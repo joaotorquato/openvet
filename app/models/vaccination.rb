@@ -6,10 +6,16 @@ class Vaccination < ActiveRecord::Base
   end
 
   def expired?
-    Time.zone.now.to_time > expiration_date.to_time
+    Time.zone.now.to_time.day > expiration_date.to_time.day
   end
 
   def expiration_days
-    Time.zone.now.day - expiration_date.day
+    time_diff = expiration_date.to_time - Time.zone.now.to_time
+    (time_diff / 1.day).round
+  end
+
+  def expired_days
+    time_diff = Time.zone.now.to_time - expiration_date.to_time
+    (time_diff / 1.day).round
   end
 end
