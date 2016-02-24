@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User register a new vaccination' do
   scenario 'succesfully' do
-    create(:user)
     create(:pet)
 
     login

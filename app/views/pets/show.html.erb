@@ -1,6 +1,14 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="list-unstyled">
+      <% @vaccinations.each do | vaccination | %>
+        <% if vaccination.to_expire? %>
+          <li><strong><%= "Vacina #{vaccination.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
+        <% end %>
+        <% if vaccination.expired? %>
+          <li><strong><%= "Vacina #{vaccination.name} expirou há #{vaccination.expiration_days} dias" %></strong></li>
+        <% end %>
+      <% end %>
       <li><strong>Dono(a): </strong><%= @pet.owner %></li>
       <li><strong>Nome: </strong><%= @pet.name %></li>
       <li><strong>Espécie: </strong><%= @pet.species %></li>

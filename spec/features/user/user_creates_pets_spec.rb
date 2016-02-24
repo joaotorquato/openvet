@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'User register a new pet' do
   scenario 'succesfully' do
     pet = build(:pet)
-    create(:user)
 
     login
 
@@ -34,7 +33,6 @@ feature 'User register a new pet' do
 
   scenario 'succesfully without a photo' do
     pet = build(:pet)
-    create(:user)
 
     login
 
