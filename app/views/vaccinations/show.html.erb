@@ -1,0 +1,8 @@
+<div class="row">
+    <ul class="list-unstyled">
+      <li><strong>Nome da vacinação: </strong><%= @vaccination.name %></li>
+      <li><strong>Data de vacinação: </strong><%= @vaccination.vaccination_date.strftime('%d/%m/%Y') %></li>
+      <li><strong>Expiração: </strong><%= @vaccination.expiration_date %></li>
+      <li><strong>Veterinário(a): </strong><%= @vaccination.veterinary %></li>
+    </ul>
+</div>

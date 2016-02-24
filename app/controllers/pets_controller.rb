@@ -23,6 +23,7 @@ class PetsController < ApplicationController
   end
 
   def show
+    @vaccination = Vaccination.new
   end
 
   private
