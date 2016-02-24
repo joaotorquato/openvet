@@ -2,7 +2,7 @@ class Vaccination < ActiveRecord::Base
   belongs_to :pet
 
   def to_expire?
-    (expiration_date.to_time - 15.days.from_now.to_time) < 0
+    (expiration_date.in_time_zone - 15.days.from_now.in_time_zone) < 0
   end
 
   def expired?
