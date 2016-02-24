@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show]
   before_action :authenticate_user!
+  before_action :set_collections, only: [:show, :index]
 
   def new
     @pet = Pet.new
@@ -27,6 +28,11 @@ class PetsController < ApplicationController
   end
 
   private
+
+  def set_collections
+    @pets = Pet.all
+    @vaccinations = Vaccination.all
+  end
 
   def set_pet
     @pet = Pet.find(params[:id])

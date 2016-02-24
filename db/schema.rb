@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160223002444) do
   create_table "vaccinations", force: :cascade do |t|
     t.string   "name"
     t.date     "vaccination_date"
-    t.integer  "expiration_date"
+    t.date     "expiration_date"
     t.string   "veterinary"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false

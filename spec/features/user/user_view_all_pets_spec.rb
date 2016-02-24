@@ -2,9 +2,16 @@ require 'rails_helper'
 
 feature 'User view all listed pets' do
   scenario 'succesfully' do
-    create(:user)
-    create(:pet)
-    create(:pet2)
+    user = create(:user)
+    create(:pet, user: user)
+    create(:pet, owner: 'João Almeida',
+                 name: 'Pet',
+                 species: 'Cachorro',
+                 breed: 'Poodle',
+                 gender: 'M',
+                 birth_date: '01/07/2016',
+                 user: user,
+                 photo: nil)
 
     login
 

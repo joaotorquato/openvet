@@ -2,8 +2,7 @@ require 'rails_helper'
 
 feature 'User register a new vaccination' do
   scenario 'succesfully' do
-    create(:user)
-    pet = create(:pet)
+    create(:pet)
 
     login
 
@@ -13,7 +12,10 @@ feature 'User register a new vaccination' do
     select '2016', from: 'vaccination[vaccination_date(1i)]'
     select 'August', from: 'vaccination[vaccination_date(2i)]'
     select '1', from: 'vaccination[vaccination_date(3i)]'
-    fill_in 'vaccination[expiration_date]', with: 15
+    select '2016', from: 'vaccination[expiration_date(1i)]'
+    select 'August', from: 'vaccination[expiration_date(2i)]'
+    select '16', from: 'vaccination[expiration_date(3i)]'
+
     fill_in 'vaccination[veterinary]', with: 'Dr. Dolittle'
 
     click_on 'Registrar vacinação'

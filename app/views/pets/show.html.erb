@@ -7,24 +7,21 @@
   </div>
   <div class="col-md-4 col-sm-12">
     <ul class="list-unstyled">
-      <li>
-        <strong>Dono(a):
-        </strong><%= @pet.owner %></li>
-      <li>
-        <strong>Espécie:
-        </strong><%= @pet.species %></li>
-      <li>
-        <strong>Raça:
-        </strong><%= @pet.breed %></li>
-      <li>
-        <strong>Gênero:
-        </strong><%= @pet.gender %></li>
-      <li>
-        <strong>Nascimento:
-        </strong><%= @pet.birth_date.strftime("%d/%m/%Y") %></li>
-      <li>
-        <strong>Endereço:
-        </strong><%= @pet.address %></li>
+      <% @vaccinations.each do | vaccination | %>
+        <% if vaccination.to_expire? %>
+          <li><strong><%= "Vacina #{vaccination.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
+        <% end %>
+        <% if vaccination.expired? %>
+          <li><strong><%= "Vacina #{vaccination.name} expirou há #{vaccination.expired_days} dias" %></strong></li>
+        <% end %>
+      <% end %>
+      <li><strong>Dono(a): </strong><%= @pet.owner %></li>
+      <li><strong>Nome: </strong><%= @pet.name %></li>
+      <li><strong>Espécie: </strong><%= @pet.species %></li>
+      <li><strong>Raça: </strong><%= @pet.breed %></li>
+      <li><strong>Gênero: </strong><%= @pet.gender %></li>
+      <li><strong>Nascimento: </strong><%= @pet.birth_date.strftime("%d/%m/%Y") %></li>
+      <li><strong>Endereço: </strong><%= @pet.address %></li>
     </ul>
   </div>
 </div>
