@@ -21,6 +21,7 @@ class PetsController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @pets = @user.pets
+    @vaccinations = Vaccination.all
   end
 
   def show
@@ -31,7 +32,6 @@ class PetsController < ApplicationController
 
   def set_collections
     @pets = Pet.all
-    @vaccinations = Vaccination.all
   end
 
   def set_pet

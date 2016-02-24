@@ -7,7 +7,7 @@
   </div>
   <div class="col-md-4 col-sm-12">
     <ul class="list-unstyled">
-      <% @vaccinations.each do | vaccination | %>
+      <% @pet.vaccinations.each do | vaccination | %>
         <% if vaccination.to_expire? %>
           <li><strong><%= "Vacina #{vaccination.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
         <% end %>
@@ -45,7 +45,7 @@
     <tr>
       <td><%= vaccination.name %></td>
       <td><%= vaccination.vaccination_date.strftime("%d/%m/%Y") %></td>
-      <td><%= vaccination.expiration_date %></td>
+      <td><%= vaccination.expiration_date.strftime("%d/%m/%Y") %></td>
       <td><%= vaccination.veterinary %></td>
     </tr>
     <% end %>
@@ -64,10 +64,10 @@
   <div class="col-md-3">
     <%= f.input :vaccination_date, label: 'Data de vacinação', error: 'Campo obrigatório', as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
   </div>
-  <div class="col-md-2">
-    <%= f.input :expiration_date, label: 'Data de revacinação', error: 'Campo obrigatório' %>
-  </div>
   <div class="col-md-3">
+    <%= f.input :expiration_date, label: 'Data de revacinação', error: 'Campo obrigatório', as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
+  </div>
+  <div class="col-md-2">
     <%= f.input :veterinary, label: 'Veterinário', error: 'Campo obrigatório' %>
   </div>
   <div class="col-md-2">

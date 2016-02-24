@@ -4,7 +4,7 @@
   <%= f.input :species, label: 'Espécie', collection: ["Cão", "Gato"], error: 'Campo obrigatório' %>
   <%= f.input :breed, label: 'Raça', error: 'Campo obrigatório' %>
   <%= f.input :gender, label: 'Sexo', collection: ["M", "F"], error: 'Campo obrigatório' %>
-  <%= f.input :birth_date, label: 'Data de nascimento', as: :date, error: 'Campo obrigatório', as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
+  <%= f.input :birth_date, label: 'Data de nascimento', error: 'Campo obrigatório', as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
   <%= f.input :address, label: 'Endereço', error: 'Campo obrigatório' %>
   <%= f.input :photo, label: 'Foto do pet', as: :file, error: 'Campo obrigatório' %>
   <%= f.submit 'Registrar pet', label: '', class: 'btn btn-primary' %>
