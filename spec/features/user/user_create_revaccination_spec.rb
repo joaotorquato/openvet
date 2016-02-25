@@ -12,15 +12,18 @@ feature 'User register a new revaccination' do
     fill_in 'vaccination[vaccine_attributes][name]',
             with: vaccination.vaccine.name
     select '2016', from: 'vaccination[vaccination_date(1i)]'
-    select 'August', from: 'vaccination[vaccination_date(2i)]'
+    select 'Agosto', from: 'vaccination[vaccination_date(2i)]'
     select '1', from: 'vaccination[vaccination_date(3i)]'
     select '2016', from: 'vaccination[expiration_date(1i)]'
-    select 'December', from: 'vaccination[expiration_date(2i)]'
+    select 'Dezembro', from: 'vaccination[expiration_date(2i)]'
     select '16', from: 'vaccination[expiration_date(3i)]'
 
     fill_in 'vaccination[veterinary]', with: 'Dr. Dolittle'
 
-    click_on 'Registrar vacinação'
+    within('form.new_vaccination') do
+      find('input[type=submit]').click
+    end
+
     expect(page).to have_content vaccination.vaccine.name
     expect(page).to have_xpath "//*[normalize-space()='01/08/2016']"
     expect(page).to have_xpath "//*[normalize-space()='16/12/2016']"

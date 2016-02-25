@@ -7,14 +7,6 @@
   </div>
   <div class="col-md-4 col-sm-12">
     <ul class="list-unstyled">
-      <% @pet.vaccinations.each do | vaccination | %>
-        <% if vaccination.to_expire? %>
-          <li><strong><%= "Vacina #{vaccination.vaccine.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
-        <% end %>
-        <% if vaccination.expired? %>
-          <li><strong><%= "Vacina #{vaccination.vaccine.name} expirou há #{vaccination.expired_days} dias" %></strong></li>
-        <% end %>
-      <% end %>
       <li><strong>Dono(a): </strong><%= @pet.owner %></li>
       <li><strong>Nome: </strong><%= @pet.name %></li>
       <li><strong>Espécie: </strong><%= @pet.species %></li>
@@ -22,6 +14,9 @@
       <li><strong>Gênero: </strong><%= @pet.gender %></li>
       <li><strong>Nascimento: </strong><%= @pet.birth_date.strftime("%d/%m/%Y") %></li>
       <li><strong>Endereço: </strong><%= @pet.address %></li>
+      <% @pet.vaccinations.each do | vaccination | %>
+          <li><strong><%= vaccination_message(vaccination) %></strong></li>
+      <% end %>
     </ul>
   </div>
 </div>
@@ -60,21 +55,21 @@
 <div class="row">
   <div class="col-md-2">
     <%= f.simple_fields_for :vaccine do |fv| %>
-      <%= fv.input :name, label: 'Nome', error: 'Campo obrigatório' %>
+      <%= fv.input :name, label: 'Nome' %>
     <% end %>
   </div>
   <div class="col-md-3">
-    <%= f.input :vaccination_date, label: 'Data de vacinação', error: 'Campo obrigatório', as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
+    <%= f.input :vaccination_date, as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
   </div>
   <div class="col-md-3">
-    <%= f.input :expiration_date, label: 'Data de revacinação', error: 'Campo obrigatório', as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
+    <%= f.input :expiration_date, as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
   </div>
   <div class="col-md-2">
-    <%= f.input :veterinary, label: 'Veterinário', error: 'Campo obrigatório' %>
+    <%= f.input :veterinary %>
   </div>
   <div class="col-md-2">
     <label>&nbsp;</label>
-    <%= f.submit 'Registrar vacinação', label: '', class: 'btn btn-primary' %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 </div>
 <% end %>
