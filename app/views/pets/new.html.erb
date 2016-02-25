@@ -1,11 +1,11 @@
 <%= simple_form_for @pet do |f|  %>
-  <%= f.input :owner, label: 'Dono(a)', error: 'Campo obrigatório' %>
-  <%= f.input :name, label: 'Nome do pet', error: 'Campo obrigatório' %>
-  <%= f.input :species, label: 'Espécie', collection: ["Cão", "Gato"], error: 'Campo obrigatório' %>
-  <%= f.input :breed, label: 'Raça', error: 'Campo obrigatório' %>
-  <%= f.input :gender, label: 'Sexo', collection: ["M", "F"], error: 'Campo obrigatório' %>
-  <%= f.input :birth_date, label: 'Data de nascimento', error: 'Campo obrigatório', as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
-  <%= f.input :address, label: 'Endereço', error: 'Campo obrigatório' %>
-  <%= f.input :photo, label: 'Foto do pet', as: :file, error: 'Campo obrigatório' %>
-  <%= f.submit 'Registrar pet', label: '', class: 'btn btn-primary' %>
+  <%= f.input :owner %>
+  <%= f.input :name %>
+  <%= f.input :species, collection: ["Cão", "Gato"] %>
+  <%= f.input :breed %>
+  <%= f.input :gender, collection: ["M", "F"] %>
+  <%= f.input :birth_date, as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
+  <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>

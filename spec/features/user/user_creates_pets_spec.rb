@@ -14,12 +14,14 @@ feature 'User register a new pet' do
     fill_in 'pet[breed]', with: pet.breed
     select pet.gender, from: 'pet[gender]'
     select '2016', from: 'pet[birth_date(1i)]'
-    select 'August', from: 'pet[birth_date(2i)]'
+    select 'Agosto', from: 'pet[birth_date(2i)]'
     select '1', from: 'pet[birth_date(3i)]'
     fill_in 'pet[address]', with: pet.address
     attach_file 'pet[photo]', 'spec/images/pets/padme.jpg'
 
-    click_on 'Registrar pet'
+    within('form.new_pet') do
+      find('input[type=submit]').click
+    end
 
     expect(page).to have_content pet.owner
     expect(page).to have_content pet.name
@@ -44,11 +46,13 @@ feature 'User register a new pet' do
     fill_in 'pet[breed]', with: pet.breed
     select pet.gender, from: 'pet[gender]'
     select '2016', from: 'pet[birth_date(1i)]'
-    select 'August', from: 'pet[birth_date(2i)]'
+    select 'Agosto', from: 'pet[birth_date(2i)]'
     select '1', from: 'pet[birth_date(3i)]'
     fill_in 'pet[address]', with: pet.address
 
-    click_on 'Registrar pet'
+    within('form.new_pet') do
+      find('input[type=submit]').click
+    end
 
     expect(page).to have_content pet.owner
     expect(page).to have_content pet.name
@@ -66,10 +70,12 @@ feature 'User register a new pet' do
 
     visit new_pet_path
 
-    click_on 'Registrar pet'
+    within('form.new_pet') do
+      find('input[type=submit]').click
+    end
 
     expect(current_path).to eq pets_path
-    expect(page).to have_content 'Campo obrigatório'
+    expect(page).to have_content 'não pode ficar em branco'
   end
 
   scenario "can't create a new pet without being logged in" do

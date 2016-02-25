@@ -5,6 +5,8 @@ module ModelsMacros
     fill_in 'user[email]', with: 'joaorsalmeida@testmail.com'
     fill_in 'user[password]', with: 'padme123'
 
-    click_on 'Login'
+    within('form.new_user') do
+      find('input[type=submit]').click
+    end
   end
 end
