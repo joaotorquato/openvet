@@ -6,12 +6,16 @@ feature 'User authenticates' do
 
     visit root_path
 
-    click_on 'Entrar'
+    within('.navbar') do
+      click_on 'Entrar'
+    end
 
     fill_in 'user[email]', with: 'joaorsalmeida@testmail.com'
     fill_in 'user[password]', with: 'padme123'
 
-    click_on 'Login'
+    within('form.new_user') do
+      find('input[type=submit]').click
+    end
 
     expect(page).to have_content "Olá, João Almeida"
     expect(page).to have_link 'Sair'
@@ -36,7 +40,9 @@ feature 'User authenticates' do
     fill_in 'user[email]', with: 'joaorsalmeida@testmail.com'
     fill_in 'user[password]', with: 'padme123'
 
-    click_on 'Sign up'
+    within('form.new_user') do
+      find('input[type=submit]').click
+    end
 
     expect(page).to have_content 'Alguns erros foram encontrados,
                                   por favor verifique:'
@@ -52,7 +58,9 @@ feature 'User authenticates' do
     fill_in 'user[name]', with: "João Almeida"
     fill_in 'user[phone]', with: '5555-5555'
 
-    click_on 'Sign up'
+    within('form.new_user') do
+      find('input[type=submit]').click
+    end
 
     expect(page).to have_content "Olá, João Almeida"
   end
