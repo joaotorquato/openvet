@@ -4,7 +4,7 @@
   <%= f.input :species, collection: ["Cão", "Gato"] %>
   <%= f.input :breed %>
   <%= f.input :gender, collection: ["M", "F"] %>
-  <%= f.input :birth_date, as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>
+  <%= f.input :birth_date, as: :date, start_year: Date.today.year - 25, end_year: Date.today.year, order: [:day, :month, :year] %>
   <%= f.input :address %>
   <%= f.input :photo, as: :file %>
   <%= f.submit class: 'btn btn-primary' %>
