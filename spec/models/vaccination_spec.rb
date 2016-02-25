@@ -1,6 +1,17 @@
 require 'rails_helper'
 
 describe Vaccination do
+  it '#build_vaccination' do
+    params = { vaccine_attributes: { name: 'Tripla' },
+               expiration_date: '12/12/2013',
+               veterinary: 'Dr Dolittle', vaccination_date: '12/12/2010' }
+    pet = create(:pet)
+    vaccination = described_class.build_vaccination(pet, params)
+    expect(vaccination).to be_valid
+    expect(vaccination.pet).to eq pet
+    expect(vaccination.vaccine).to be_persisted
+    expect(vaccination.vaccine.name).to eq 'Tripla'
+  end
   describe 'expires on 15 days' do
     it 'equals true' do
       vaccination = build(:vaccination, expiration_date: 15.days.from_now)
