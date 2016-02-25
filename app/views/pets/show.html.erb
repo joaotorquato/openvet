@@ -9,10 +9,10 @@
     <ul class="list-unstyled">
       <% @pet.vaccinations.each do | vaccination | %>
         <% if vaccination.to_expire? %>
-          <li><strong><%= "Vacina #{vaccination.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
+          <li><strong><%= "Vacina #{vaccination.vaccine.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
         <% end %>
         <% if vaccination.expired? %>
-          <li><strong><%= "Vacina #{vaccination.name} expirou há #{vaccination.expired_days} dias" %></strong></li>
+          <li><strong><%= "Vacina #{vaccination.vaccine.name} expirou há #{vaccination.expired_days} dias" %></strong></li>
         <% end %>
       <% end %>
       <li><strong>Dono(a): </strong><%= @pet.owner %></li>
@@ -43,7 +43,7 @@
   <tbody>
     <% @pet.vaccinations.each do |vaccination| %>
     <tr>
-      <td><%= vaccination.name %></td>
+      <td><%= vaccination.vaccine.name %></td>
       <td><%= vaccination.vaccination_date.strftime("%d/%m/%Y") %></td>
       <td><%= vaccination.expiration_date.strftime("%d/%m/%Y") %></td>
       <td><%= vaccination.veterinary %></td>
@@ -59,7 +59,9 @@
 <%= simple_form_for [@pet, @vaccination] do |f|  %>
 <div class="row">
   <div class="col-md-2">
-    <%= f.input :name, label: 'Nome', error: 'Campo obrigatório' %>
+    <%= f.simple_fields_for :vaccine do |fv| %>
+      <%= fv.input :name, label: 'Nome', error: 'Campo obrigatório' %>
+    <% end %>
   </div>
   <div class="col-md-3">
     <%= f.input :vaccination_date, label: 'Data de vacinação', error: 'Campo obrigatório', as: :date, start_year: Date.today.year - 5, order: [:day, :month, :year] %>

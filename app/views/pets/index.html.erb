@@ -9,10 +9,10 @@
         <li><strong>Nascimento: </strong><%= pet.birth_date.strftime("%d/%m/%Y") %></li>
         <% @vaccinations.each do | vaccination | %>
           <% if vaccination.to_expire? %>
-            <li><strong><%= "Vacina #{vaccination.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
+            <li><strong><%= "Vacina #{vaccination.vaccine.name} expira em #{vaccination.expiration_days} dias" %></strong></li>
           <% end %>
           <% if vaccination.expired? %>
-            <li><strong><%= "Vacina #{vaccination.name} expirou há #{vaccination.expired_days} dias" %></strong></li>
+            <li><strong><%= "Vacina #{vaccination.vaccine.name} expirou há #{vaccination.expired_days} dias" %></strong></li>
           <% end %>
         <% end %>
       </ul>

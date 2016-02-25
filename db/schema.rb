@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223005208) do
+ActiveRecord::Schema.define(version: 20160225011847) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "owner"
@@ -53,15 +53,22 @@ ActiveRecord::Schema.define(version: 20160223005208) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vaccinations", force: :cascade do |t|
-    t.string   "name"
     t.date     "vaccination_date"
     t.date     "expiration_date"
     t.string   "veterinary"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "pet_id"
+    t.integer  "vaccine_id"
   end
 
   add_index "vaccinations", ["pet_id"], name: "index_vaccinations_on_pet_id"
+  add_index "vaccinations", ["vaccine_id"], name: "index_vaccinations_on_vaccine_id"
+
+  create_table "vaccines", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

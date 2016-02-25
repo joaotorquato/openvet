@@ -5,7 +5,7 @@ class VaccinationsController < ApplicationController
 
   def create
     @pet = Pet.find(params[:pet_id])
-    @vaccination = Vaccination.new(vaccination_params.merge(pet: @pet))
+    @vaccination = Vaccination.build_vaccination(@pet, vaccination_params)
     if @vaccination.save
       redirect_to @pet
     else
@@ -19,8 +19,14 @@ class VaccinationsController < ApplicationController
 
   private
 
+  def find_vaccine
+    Vaccine.find_by(name: params[:vaccination][:name])
+  end
+
   def vaccination_params
-    params.require(:vaccination).permit(:name, :vaccination_date,
-                                        :expiration_date, :veterinary)
+    params.require(:vaccination).permit(:vaccination_date,
+                                        :expiration_date,
+                                        :veterinary,
+                                        vaccine_attributes: [:name])
   end
 end
