@@ -38,8 +38,9 @@ feature 'User authenticates' do
 
     click_on 'Sign up'
 
-    expect(page).to have_content 'Por favor, revise os campos abaixo:'
-    expect(page).to have_content 'Campo obrigatório'
+    expect(page).to have_content 'Alguns erros foram encontrados,
+                                  por favor verifique:'
+    expect(page).to have_content 'não pode ficar em branco'
   end
 
   scenario 'user register a new account with all required params' do
