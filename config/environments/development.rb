@@ -47,7 +47,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'openvet.com',
     user_name:            'noreply.openvet',
-    password:             'Campus1293',
+    password:             Rails.application.secrets.gmail_password,
     authentication:       'plain',
     enable_starttls_auto: true  }
 
