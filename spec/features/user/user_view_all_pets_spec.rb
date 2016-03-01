@@ -20,7 +20,7 @@ feature 'User view all listed pets' do
     # Pet 1
     expect(page).to have_content "Padmé"
     expect(page).to have_content 'Gato'
-    expect(page).to have_content 'SRD'
+    expect(page).to have_content 'Sem raça definida'
     expect(page).to have_content 'F'
     expect(page).to have_content '01/08/2016'
     expect(page).to have_xpath "//*[@*='Padme']"

@@ -1,11 +1,29 @@
 <%= simple_form_for @pet do |f|  %>
   <%= f.input :owner %>
   <%= f.input :name %>
-  <%= f.input :species, collection: ["Cão", "Gato"] %>
-  <%= f.input :breed %>
+  <%= f.input :species, collection: ["Cão", "Gato"], selected: "Cão" %>
+  <%= f.input :breed, collection: BreedHelper::DOG, prompt: "Selecione uma raça" %>
   <%= f.input :gender, collection: ["M", "F"] %>
   <%= f.input :birth_date, as: :date, start_year: Date.today.year - 25, end_year: Date.today.year, order: [:day, :month, :year] %>
   <%= f.input :address %>
   <%= f.input :photo, as: :file %>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
+
+<script type="text/javascript">
+  var cat_breeds = <%= @cat_breeds.to_json.html_safe %>;
+  var dog_breeds = <%= @dog_breeds.to_json.html_safe %>;
+  $('#pet_species').change(function(){
+    var breeds = dog_breeds;
+    if($(this).val() == 'Gato'){
+        breeds = cat_breeds;
+    }
+    $el = $('#pet_breed');
+    $el.empty();
+    $el.append($("<option>Selecione uma raça</option>"));
+    $.each(breeds, function(value,key) {
+      $el.append($("<option></option>")
+         .attr("value", key.pop()).text(key.pop()));
+    });
+  });
+</script>
