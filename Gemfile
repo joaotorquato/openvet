@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'paperclip', '~> 4.3'
 gem 'devise'
 gem 'pg', group: :production
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'capybara'

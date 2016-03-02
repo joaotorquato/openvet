@@ -4,7 +4,7 @@ feature 'User authenticates' do
   scenario 'succesfully' do
     create(:user)
 
-    visit root_path
+    visit pets_path
 
     within('.navbar') do
       click_on 'Entrar'

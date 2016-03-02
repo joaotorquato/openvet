@@ -7,7 +7,7 @@ feature 'User view vaccination expired alert' do
 
     login
 
-    visit root_path
+    visit pets_path
 
     expect(page).to have_content 'Vacina Tripla expirou há 5 dias'
   end
