@@ -4,6 +4,8 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @cat_breeds = BreedHelper::CAT
+    @dog_breeds = BreedHelper::DOG
   end
 
   def create

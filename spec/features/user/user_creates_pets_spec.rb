@@ -11,7 +11,7 @@ feature 'User register a new pet' do
     fill_in 'pet[owner]', with: pet.owner
     fill_in 'pet[name]', with: pet.name
     select pet.species, from: 'pet[species]'
-    fill_in 'pet[breed]', with: pet.breed
+    select pet.breed, from: 'pet[breed]'
     select pet.gender, from: 'pet[gender]'
     select '2016', from: 'pet[birth_date(1i)]'
     select 'Agosto', from: 'pet[birth_date(2i)]'
@@ -43,7 +43,7 @@ feature 'User register a new pet' do
     fill_in 'pet[owner]', with: pet.owner
     fill_in 'pet[name]', with: pet.name
     select pet.species, from: 'pet[species]'
-    fill_in 'pet[breed]', with: pet.breed
+    select pet.breed, from: 'pet[breed]'
     select pet.gender, from: 'pet[gender]'
     select '2016', from: 'pet[birth_date(1i)]'
     select 'Agosto', from: 'pet[birth_date(2i)]'
@@ -82,5 +82,54 @@ feature 'User register a new pet' do
     visit new_pet_path
 
     expect(current_path).to eq new_user_session_path
+  end
+
+  context "when selected 'Cão'" do
+    scenario 'user should see Poodle breed', js: true do
+      create(:user)
+
+      login
+
+      visit new_pet_path
+
+      select "Cão", from: 'pet[species]'
+      expect((select 'Poodle', from: 'pet[breed]')).to be true
+    end
+
+    scenario 'user should not see Persa breed', js: true do
+      create(:user)
+
+      login
+
+      visit new_pet_path
+
+      select "Cão", from: 'pet[species]'
+
+      expect(page.has_css?('#pet_breed', text: 'Persa')).to be false
+    end
+  end
+
+  context "when selected 'Gato'" do
+    scenario 'user should see Persa breed', js: true do
+      create(:user)
+
+      login
+
+      visit new_pet_path
+
+      select 'Gato', from: 'pet[species]'
+      expect((select 'Persa', from: 'pet[breed]')).to be true
+    end
+
+    scenario 'user should not see Poodle breed', js: true do
+      create(:user)
+
+      login
+
+      visit new_pet_path
+
+      select 'Gato', from: 'pet[species]'
+      expect(page.has_css?('#pet_breed', text: 'Poodle')).to be false
+    end
   end
 end
