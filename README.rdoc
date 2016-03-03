@@ -6,9 +6,9 @@
 
 * Ruby version - 2.2.4
 
-* System dependencies - the gems listed in the Gemfile
+* System dependencies - the gems listed in the Gemfile and the installation of PhantomJS to run all tests correctly.
 
-* Configuration - even after running bundle install --without production, the system needs the creation of an environment variable called GMAIL_PASSWORD (with the proper value), and the installation of PhantomJS to run all tests correctly.
+* Configuration - even after running bundle install --without production, the system needs the creation of an environment variable called GMAIL_PASSWORD (with the proper value).
 
 * Database creation - execute the command rake db:reset inside the project's folder
 
