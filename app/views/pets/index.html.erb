@@ -6,6 +6,9 @@
 <% else %>
 <% @pets.each do |pet| %>
   <div class="row">
+    <div class="col-md-3 col-xs-12">
+      <%= image_tag pet.photo.url(:medium), class: 'img-responsive'%>
+    </div>
     <div class="col-md-3">
       <h2><%= link_to pet.name, pet_path(pet.id) %></h2>
       <ul class="list-unstyled">
@@ -17,9 +20,6 @@
             <li><strong><%= vaccination_message(vaccination) %></strong></li>
         <% end %>
       </ul>
-    </div>
-    <div class="col-md-9">
-      <%= image_tag pet.photo.url(:medium) %>
     </div>
   </div>
   <br>

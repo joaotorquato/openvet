@@ -1,6 +1,10 @@
 ---
 pt-BR:
   activerecord:
+    models:
+      user: "Usuário"
+      vaccination: "Vacinação"
+      vaccine: "Vacina"
     attributes:
       user:
         password: "Senha"

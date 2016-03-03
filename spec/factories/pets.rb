@@ -3,7 +3,7 @@ FactoryGirl.define do
     owner 'João Almeida'
     name 'Padmé'
     species 'Gato'
-    breed 'SRD'
+    breed 'Sem raça definida'
     gender 'F'
     birth_date '01/08/2016'
     address 'Alameda Santos, 1293asd'

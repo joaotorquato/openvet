@@ -1,9 +1,9 @@
 module VaccinationHelper
   def vaccination_message(vaccination)
-    if vaccination.expired?
+    if vaccination.vaccine.expired?
       "Vacina #{vaccination.vaccine.name} expirou há
        #{vaccination.expired_days} dias"
-    elsif vaccination.to_expire?
+    elsif !vaccination.expired? && vaccination.to_expire?
       if vaccination.expiration_days == 0
         "Vacina #{vaccination.vaccine.name} expira hoje!"
       else

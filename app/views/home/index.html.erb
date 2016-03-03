@@ -1,0 +1,189 @@
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">OPENVET</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">O que é?</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Sobre Nós</a>
+                    </li>
+                    <% if user_signed_in? %>
+                    <li class="page-scroll">
+                      <a> <%= "Olá, #{current_user.name}" %></a>
+                    </li>
+                    <li class="page-scroll">
+                      <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+                    </li>
+                    <% else %>
+                    <li class="page-scroll">
+                      <%= link_to "Entrar", new_user_session_path%>
+                    </li>
+
+                    <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <%= image_tag "profile.svg" %>
+                    <div class="intro-text">
+                        <span class="skills hidden-xs">Cuide ainda mais do seu bichinho!</span>
+                        <div class="col-lg-8 col-lg-offset-2 text-center hidden-md hidden-lg">
+                          <%= link_to "Entrar", new_user_session_path, class: 'btn btn-lg btn-outline'%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>O que é?</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p class="text-justify">Openvet é a primeira plataforma online responsável pela comunicação entre você e seu veterinário. Nele você pode cadastrar vacinações, receber alerta de medicações, e utilizar os demais serviços que oferecemos para auxiliar você com os cuidados do seu melhor amigo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Sobre Nós</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                  <div class="col-sm-3">
+                      <div class="team-member">
+                          <%= image_tag "joao.jpeg", class: "img-responsive img-circle", alt: "João Torquato"%>
+                          <h4>João Torquato</h4>
+                          <p class="text-muted">Desenvolvedor</p>
+                          <ul class="list-inline social-buttons">
+                              <li><a href="https://github.com/joaotorquato" target="_blank"><i class="fa fa-github-alt"></i></a>
+                              </li>
+                              <li><a href="https://br.linkedin.com/in/joaootaviolima" target="_blank"><i class="fa fa-linkedin"></i></a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <div class="team-member">
+                          <%= image_tag "lucas.jpg", class: "img-responsive img-circle", alt: "Lucas Machado"%>
+                          <h4>Lucas Machado</h4>
+                          <p class="text-muted">Desenvolvedor</p>
+                          <ul class="list-inline social-buttons">
+                              <li><a href="https://github.com/machado144" target="_blank"><i class="fa fa-github-alt"></i></a>
+                              </li>
+                              <li><a href="https://www.linkedin.com/in/lucaspmachado" target="_blank"><i class="fa fa-linkedin"></i></a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <div class="team-member">
+                          <%= image_tag "melost.jpeg", class: "img-responsive img-circle", alt: "Stefanie Melo"%>
+                          <h4>Stefanie Melo</h4>
+                          <p class="text-muted">Desenvolvedora</p>
+                          <ul class="list-inline social-buttons">
+                              <li><a href="https://github.com/melostbr" target="_blank"><i class="fa fa-github-alt"></i></a>
+                              </li>
+                              <li><a href="https://br.linkedin.com/in/stefaniemelo" target="_blank"><i class="fa fa-linkedin"></i></a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <div class="team-member">
+                          <%= image_tag "cezar.jpeg", class: "img-responsive img-circle", alt: "Cezar Vaz"%>
+                          <h4>Cezar Vaz</h4>
+                          <p class="text-muted">Desenvolvedor</p>
+                          <ul class="list-inline social-buttons">
+                              <li><a href="https://github.com/cezarvaz" target="_blank"><i class="fa fa-github-alt"></i></a>
+                              </li>
+                              <li><a href="https://br.linkedin.com/in/cezar-vaz-11a30982" target="_blank"><i class="fa fa-linkedin"></i></a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Local</h3>
+                        <p>Alameda Santos, 1293 - Cerqueira César, São Paulo, 01419-001</p>
+
+                    </div>
+
+                    <div class="footer-col col-md-4">
+                        <h3>Faça um fork em nosso projeto!</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://github.com/joaotorquato/openvet" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-github-alt"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                      <%= image_tag "logo_dark.png", class: "img-responsive", alt: "Logo Campus Code" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; OPENVET <%= Time.zone.now.year%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>

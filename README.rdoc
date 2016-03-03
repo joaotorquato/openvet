@@ -5,24 +5,18 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version - 2.2.4
 
-* System dependencies
+* System dependencies - the gems listed in the Gemfile
 
-* Configuration
+* Configuration - even after running bundle install --without production, the system needs the creation of an environment variable called GMAIL_PASSWORD (with the proper value), and the installation of PhantomJS to run all tests correctly.
 
-* Database creation
+* Database creation - execute the command rake db:reset inside the project's folder
 
-* Database initialization
+* Database initialization -  execute the command rake db:reset inside the project's folder
 
-* How to run the test suite
+* How to run the test suite - execute the command rspec inside the project's folder
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Deployment instructions - execute the command git push heroku master inside the project's folder,

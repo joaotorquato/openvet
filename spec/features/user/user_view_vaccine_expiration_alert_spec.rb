@@ -7,7 +7,7 @@ feature 'User view vaccine expiration alert' do
 
     login
 
-    visit root_path
+    visit pets_path
 
     expect(page).to have_content 'Vacina Tripla expira em 10 dias'
   end

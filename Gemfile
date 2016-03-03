@@ -16,9 +16,12 @@ gem 'simple_form'
 gem 'paperclip', '~> 4.3'
 gem 'devise'
 gem 'pg', group: :production
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'

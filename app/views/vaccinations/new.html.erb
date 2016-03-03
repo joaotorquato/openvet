@@ -1,7 +1,7 @@
 <%= simple_form_for @vaccination do |f|  %>
-  <%= f.input :name, label: 'Name', error: 'Campo obrigatório' %>
-  <%= f.input :vaccination_date, label: 'Data de vacinação', error: 'Campo obrigatório' %>
-  <%= f.input :expiration_date, label: 'Expiração', error: 'Campo obrigatório' %>
-  <%= f.input :veterinary, label: 'Veterinário', error: 'Campo obrigatório' %>
-  <%= f.submit 'Registrar vacinação', label: '', class: 'btn btn-primary' %>
+  <%= f.input :name %>
+  <%= f.input :vaccination_date %>
+  <%= f.input :expiration_date %>
+  <%= f.input :veterinary %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
