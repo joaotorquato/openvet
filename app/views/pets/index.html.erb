@@ -1,5 +1,7 @@
+<div class="page-header">
+  <h2>Meus Pets</h2>  
+</div>
 <% if @user.pets.empty? %>
-<h2>Cadastro de Animais</h2>
 <p>
    Você não possui pets cadastrados ainda, para começar a visualizar seus pets <strong><%= link_to "clique aqui", new_pet_path %></strong> para cadastrá-los
 </p>
