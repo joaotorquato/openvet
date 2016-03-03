@@ -32,4 +32,14 @@ feature 'User view all listed pets' do
     expect(page).to have_content '01/07/2016'
     expect(page).to have_xpath "//*[@*='Missing']"
   end
+
+  scenario 'unsucessfully' do
+    user = create(:user)
+
+    login
+
+    visit pets_path
+
+    expect(page).to have_content "Você não possui pets cadastrados ainda, para começar a visualizar seus pets clique aqui para cadastrá-los"
+  end
 end
