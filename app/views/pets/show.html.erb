@@ -37,8 +37,7 @@
   </thead>
   <tbody>
     <% @pet.vaccinations.each do |vaccination| %>
-    <tr class="<%= 'danger' if vaccination.expired? %>">
-
+    <tr class="<%= 'danger' if vaccination.vaccine.expired? %>" id="pet-vaccination-<%= vaccination.id %>">
       <td><%= vaccination.vaccine.name %></td>
       <td><%= vaccination.vaccination_date.strftime("%d/%m/%Y") %></td>
       <td><%= vaccination.expiration_date.strftime("%d/%m/%Y") %></td>
