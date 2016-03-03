@@ -1,9 +1,8 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Website - https://openvet.herokuapp.com
 
-Things you may want to cover:
+* Github - https://github.com/joaotorquato/openvet
 
 * Ruby version - 2.2.4
 
