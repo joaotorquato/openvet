@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 gem 'simple_form'
-gem 'paperclip', '~> 4.3'
+gem 'paperclip', '~> 5.3'
 gem 'devise'
 gem 'pg', group: :production
 gem 'font-awesome-rails'
